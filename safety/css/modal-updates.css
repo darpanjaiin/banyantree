@@ -1,0 +1,83 @@
+/* Gallery Modal Styles */
+.modal-content.modal-large {
+    max-width: 95vw;
+    width: 800px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 90vh;
+    background-color: #000;
+}
+
+/* Gallery Header */
+.modal-content.modal-large h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 25px;
+    padding-top: 10px;
+}
+
+/* Gallery Image Container */
+.gallery-image-container {
+    margin-bottom: 25px;
+}
+
+/* Image Styles */
+.modal-content.modal-large picture {
+    width: 100%;
+    display: block;
+}
+
+.modal-content.modal-large img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    background: white;
+    border-radius: 4px;
+}
+
+/* Caption Styles */
+.image-caption {
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Close Button */
+.modal-content.modal-large .close {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-content.modal-large {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .modal-content.modal-large img {
+        max-height: 60vh;
+    }
+    
+    .image-caption {
+        font-size: 14px;
+    }
+}
