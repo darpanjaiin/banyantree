@@ -1598,4 +1598,22 @@ body {
 .modal-content h2 {
     color: #333;
 }
+
+/* Add these styles to improve modal scrollability */
+.modal-content.modal-large {
+    max-height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.experience-cards img {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Add smooth scrolling for better experience */
+.modal-sections {
+    scroll-behavior: smooth;
+}
   
