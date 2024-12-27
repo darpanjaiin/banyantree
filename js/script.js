@@ -217,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add this inside your DOMContentLoaded event listener
     function initializeGalleryFilters() {
         const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryGrid = document.querySelector('.gallery-grid');
         const galleryItems = document.querySelectorAll('.gallery-item');
 
         filterButtons.forEach(button => {
@@ -228,14 +229,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const filterValue = button.getAttribute('data-filter');
 
-                // Animate items
+                // Filter items
+                let visibleItems = 0;
                 galleryItems.forEach(item => {
                     if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                         item.classList.remove('hidden');
+                        visibleItems++;
                     } else {
                         item.classList.add('hidden');
                     }
                 });
+
+                // Force grid reflow for clean layout
+                galleryGrid.style.display = 'none';
+                galleryGrid.offsetHeight; // Force reflow
+                galleryGrid.style.display = 'grid';
+
+                // Adjust grid based on visible items
+                if (visibleItems <= 2) {
+                    galleryGrid.style.gridTemplateColumns = `repeat(2, 1fr)`;
+                } else {
+                    galleryGrid.style.gridTemplateColumns = `repeat(auto-fill, minmax(140px, 1fr))`;
+                }
             });
         });
     }
