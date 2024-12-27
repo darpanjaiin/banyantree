@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta property="og:image" content="assets/favicon.jpg" />
     <meta property="og:title" content="Banyan Tree Pool Villa" />
-    <meta property="og:description" content="Palghar, Maharashtra" />
+    <meta property="og:description" content="Thane, Maharashtra" />
 </head>
 <body>
     <div class="container">
@@ -20,19 +20,20 @@
         <header>
             <h1>Welcome to<br>Banyan Tree Pool Villa</h1>
             <p class="tagline">
-                Palghar, Maharashtra
+                Thane, Maharashtra
             </p>
             <p class="sub-tagline">
-                This villa comfortably hosts up to 15 guests, offering 4 elegant bedrooms, a spacious living room, 4 bathrooms and a shaded patio.
+                A 4 bedroom villa with a pool, at just 2.5 hour drive from Mumbai comfortably hosts groups of upto 15 guests.
             </p>
         </header>
 
         <div class="quick-access-grid">
-            <div class="grid-item" onclick="window.open('https://www.airbnb.co.in/rooms/1222193703277976384?source_impression_id=p3_1733987572_P3NmPiSvOygrjr3i', '_blank')">
+      
+            <div class="grid-item" id="nearby-btn">
                 <div class="icon-wrapper">
-                    <i class="fas fa-calendar-check"></i>
+                    <i class="fas fa-compass"></i>
                 </div>
-                <h3>Book<br>Now</h3>
+                <h3>Location</h3>
             </div>
             <div class="grid-item" id="reviews-btn">
                 <div class="icon-wrapper">
@@ -40,12 +41,7 @@
                 </div>
                 <h3>Reviews</h3>
             </div>
-            <div class="grid-item" id="nearby-btn">
-                <div class="icon-wrapper">
-                    <i class="fas fa-compass"></i>
-                </div>
-                <h3>Location</h3>
-            </div>
+       
             <div class="grid-item" id="emergency-btn">
                 <div class="icon-wrapper">
                     <i class="fas fa-phone-volume"></i>
@@ -58,20 +54,26 @@
                 </div>
                 <h3>Home<br>Rules</h3>
             </div>
-            <div class="grid-item" id="specials-btn">
+            <div class="grid-item" onclick="openAirbnb()">
                 <div class="icon-wrapper">
-                    <i class="fas fa-gift"></i>
+                    <i class="fas fa-calendar-alt"></i>
                 </div>
-                <h3>Local<br>Specials</h3>
+                <h3>Check<br>Availability</h3>
+            </div>
+            <div class="grid-item" id="book-now-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Book<br>Now</h3>
             </div>
         </div>
 
         <section class="featured-sections">
-            <div class="feature-card" id="host-favorites">
-                <img src="assets/hostfav.png" alt="Host favorites">
+            <div class="feature-card" id="food-card">
+                <img src="assets/food.jpg" alt="Food and Dining">
                 <div class="card-content">
-                    <h2>Host favorites</h2>
-                    <p>What hosts want you to experience</p>
+                    <h2>Food</h2>
+                    <p>Dine and Unwind</p>
                 </div>
             </div>
 
@@ -80,6 +82,14 @@
                 <div class="card-content">
                     <h2>Amenities</h2>
                     <p>Find what's inside</p>
+                </div>
+            </div>
+
+            <div class="feature-card" id="nearby-experiences">
+                <img src="assets/gallery/ext.png" alt="Nearby Experiences">
+                <div class="card-content">
+                    <h2>Nearby Experiences</h2>
+                    <p>Explore local attractions</p>
                 </div>
             </div>
 
@@ -95,7 +105,7 @@
         <footer>
             <p class="quote">This house becomes more than bricks and mortar when it holds the laughter and memories of travelers like you.</p>
             <div class="footer-buttons">
-                <button onclick="window.open('https://www.airbnb.co.in/rooms/1222193703277976384?source_impression_id=p3_1733987572_P3NmPiSvOygrjr3i', '_blank')" id="book-now-footer-btn">Book Now</button>
+                <button id="book-now-footer-btn">Book Now</button>
                 <button id="share-btn">Share property</button>
             </div>
         </footer>
@@ -106,53 +116,77 @@
         <div class="modal-content modal-large">
             <span class="close">&times;</span>
             <h2>Property Gallery</h2>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    All
+                </button>
+                <button class="filter-btn" data-filter="interior">
+                    <i class="fas fa-couch"></i>
+                    Interior
+                </button>
+                <button class="filter-btn" data-filter="exterior">
+                    <i class="fas fa-home"></i>
+                    Exterior
+                </button>
+                <button class="filter-btn" data-filter="amenities">
+                    <i class="fas fa-swimming-pool"></i>
+                    Amenities
+                </button>
+                <button class="filter-btn" data-filter="views">
+                    <i class="fas fa-mountain"></i>
+                    Views
+                </button>
+            </div>
+
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="assets/gallery/1.png" alt="Property View" loading="lazy">
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/gallery/1.png" alt="Living Room" loading="lazy">
                     <p>Living Room</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="amenities">
                     <img src="assets/gallery/pool.png" alt="Pool" loading="lazy">
                     <p>SwimmingPool</p>
                 </div>
                 
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="exterior">
                     <img src="assets/gallery/ext.png" alt="Property Exterior" loading="lazy">
                     <p>Property Exterior</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="amenities">
                     <img src="assets/gallery/dining.png" alt="Outdoor Dining" loading="lazy">
                     <p>Outdoor Dining</p>
                 </div>
                 
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="interior">
                     <img src="assets/gallery/garden.png" alt="Garden Area" loading="lazy">
                     <p>Garden Area</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="interior">
                     <img src="assets/gallery/bedroom2.png" alt="Bedroom2" loading="lazy">
                     <p>Bedroom</p>
                 </div>
                 
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="interior">
                     <img src="assets/gallery/bedroom1.png" alt="Bedroom1" loading="lazy">
                     <p>Bedroom</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="views">
                     <img src="assets/gallery/Surya.png" alt="Surya" loading="lazy">
                     <p>Surya River view</p>
                 </div>
                 
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="amenities">
                     <img src="assets/gallery/rooms.png" alt="Room View" loading="lazy">
                     <p>Room View</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="amenities">
                     <img src="assets/gallery/bathroom.png" alt="Bathroom" loading="lazy">
                     <p>Bathroom</p>
                 </div>
                 
-                <div class="gallery-item">
+                <div class="gallery-item" data-category="amenities">
                     <img src="assets/gallery/common.png" alt="Common" loading="lazy">
                     <p>Common Area</p>
                 </div>
@@ -192,11 +226,15 @@
                 <div class="modal-section">
                     <h3>🚗 How to Reach</h3>
                     <ul class="transport-options">
+                 
+                        <li>
+                            <strong>Private Taxi:</strong> Pick up and drop facility can be arranged at prior request.
+                        </li>
                         <li>
                             <strong>By Bus:</strong> Mumbai-Vadodara Express Bus Stop (8.8 km) is the closest bus stop
                         </li>
                         <li>
-                            <strong>By Train:</strong> Palghar Station (20.1 km) is the nearest railway station
+                            <strong>By Train:</strong> Palghar Station (20.1 km) is the nearest railway station. 84 kms from Thane, Mumbai.
                         </li>
                         <li>
                             <strong>By Air:</strong> CSMIA Mumbai (BOM) International Airport (88.2 km) is the closest airport
@@ -416,55 +454,13 @@
         </div>
     </div>
 
-    <div id="host-favorites-modal" class="modal">
+    <div id="food-modal" class="modal">
         <div class="modal-content modal-large">
             <span class="close">&times;</span>
-            <h2>Property Features</h2>
-            
+            <h2>Food & Dining</h2>
             <div class="modal-sections">
-                <div class="modal-section highlight-section">
-                    <h3>🌲 Farm Visit</h3>
-                    <div class="experience-cards">
-                        <div class="exp-card">
-                            <img src="assets/hf1.png" alt="Farm Visits" class="exp-image" loading="lazy">
-                            <h4>Organic Farm Visit</h4>
-                            <ul>
-                                <li>Book in Advance - 3 hour field trip</li>
-                                <li>Field trips spread over 5 acre farm are held every Friday from September to February</li>
-                                <li>Lessons about plant life cycles and seasons, a bug hunt</li>
-                                <li>Drinking water and a farmer guide provided</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="modal-section">
-                    <h3>🌅 Attached Deck</h3>
-                    <div class="experience-cards">
-                        <div class="exp-card">
-                            <img src="assets/hf2.png" alt="Outdoor Dining" class="exp-image" loading="lazy">
-                            <h4>Outdoor Living Space</h4>
-                            <ul>
-                                <li>Spacious deck area ideal for relaxing or enjoying the view</li>
-                                <li>Outdoor dining setup perfect for meals under the sky</li>
-                                <li>BBQ facilities ready for delicious grilled meals</li>
-                                <li>Campfire setup for cozy evenings and shared stories</li>
-                                <li>River deck offering a peaceful spot to connect with nature</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-section">
-                    <h3>Walk Towards Surya River</h3>
-                    <div class="experience-cards">
-                        <div class="exp-card">
-                            <img src="assets/hf3.png" alt="Walk Surya River" class="exp-image" loading="lazy">
-                            <ul>
-                                <p>Step outside with a warm cup of coffee in hand and let the gentle murmur of the Surya River guide you. Just a stone’s throw away, this tranquil escape is perfect for sipping, unwinding, and soaking in nature’s beauty</p>
-                            </ul>
-                        </div>
-                    </div>
+                    <p>Content coming soon...</p>
                 </div>
             </div>
         </div>
@@ -476,6 +472,24 @@
             <h2>Property Amenities</h2>
             
             <div class="amenities-grid">
+                <div class="amenity-category">
+                    <div class="category-header" data-category="basic">
+                        <h3>🏠 Basic Facilities</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="category-content">
+                        <li>4 Bedrooms</li>
+                        <li>5 Bathrooms</li>
+                        <li>Shaded Patio</li>
+                        <li>Umbrellas</li>
+                        <li>Free Parking</li>
+                        <li>Air Conditioning</li>
+                        <li>Power Backup</li>
+                        <li>Free Wi-Fi</li>
+                        <li>Refrigerator</li>
+                    </ul>
+                </div>
+
                 <div class="amenity-category">
                     <div class="category-header" data-category="popular">
                         <h3>🛌 Popular Amenities</h3>
@@ -497,22 +511,6 @@
                         <li>River Deck</li>
                         <li>Dining Area</li>
                         <li>Air Conditioning</li>
-                    </ul>
-                </div>
-
-                <div class="amenity-category">
-                    <div class="category-header" data-category="basic">
-                        <h3>🏠 Basic Facilities</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <ul class="category-content">
-                        <li>5 Bathrooms</li>
-                        <li>Umbrellas</li>
-                        <li>Free Parking</li>
-                        <li>Air Conditioning</li>
-                        <li>Power Backup</li>
-                        <li>Free Wi-Fi</li>
-                        <li>Refrigerator</li>
                     </ul>
                 </div>
 
@@ -682,30 +680,85 @@
     </div>
 
     <div id="reviews-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2>Guest Reviews</h2>
+            <div class="review-platform-links">
+                <a href="https://www.airbnb.co.in/users/show/227962496?locale=en&_set_bev_on_new_domain=1731768734_EAMjcwNzZiNjRlNz" 
+                   target="_blank" 
+                   class="platform-button airbnb">
+                    <i class="fab fa-airbnb"></i>
+                    View Airbnb Reviews
+                </a>
+                <a href="https://www.google.com/maps/place/Shivom+Organic+Farms/@19.7699622,72.8413406,17z/data=!4m8!3m7!1s0x3be71ba29930d73f:0x4033937777eaf61a!8m2!3d19.7699572!4d72.8439155!9m1!1b1!16s%2Fg%2F11vlwwx2hc?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" 
+                   target="_blank" 
+                   class="platform-button google">
+                    <i class="fab fa-google"></i>
+                    View Google Reviews
+                </a>
+            </div>
+            <div class="reviews-content">
+                <div class="review">
+                    <h4>Nirali Solani</h4>
+                    <div class="rating">★★★★★</div>
+                    <p>Excellent property surrounded by nature and river flowing. It's in the midst of a 5 acre farm land where the amazing chef cooks fresh food harvested from the farm. Truly a farm to table experience. The property is newly renovated and has all the facilities for a comfortable and peaceful stay. Food is fantastic, everything we had was way beyond our expectations. One can see the owner's love for organic farming as well as an eye for aesthetics in the way the villa is designed. Near from Bombay and yet away from the hustle life. Thank you so much for the amazing hospitality. Will come super soon!</p>
+                </div>
+
+                <div class="review">
+                    <h4>Namrataa Kothaary</h4>
+                    <div class="rating">★★★★★</div>
+                    <p>Banyan tree by Shivom is the best farm stay we've been to near Mumbai. We all had a fun filled and memorable weekend at the property. The chef and rest of the staff were extremely courteous and hospitable. The chef prepared an array of delicious flavoursome dishes which were skilfully laid out for us. The villa's decor is tasteful and appealing. Its clean spacious comfortable and well maintained. The outdoor area is serene with breathtaking views of the lawn and surroundings having deep dense greenery. The spectacular view of sunrise from the deck which faces picturesque mountains and the Surya river were a real treat to our senses. We spent a rollicking time playing for hours on the outdoor court and thereafter cooled off in the open air swimming pool. Highly recommended!</p>
+                </div>
+
+                <div class="review">
+                    <h4>Pratic Ram</h4>
+                    <div class="rating">★★★★★</div>
+                    <p>Shivom Organic Farms is an organic farming initiative that focuses on providing organic produce and promoting sustainable farming practices. Located near Alibaug, Maharashtra, Shivom Organic Farms offers fresh, pesticide-free vegetables, fruits, and other farm products. The farm focuses on producing healthy and eco-friendly food while adhering to principles of organic agriculture.</p>
+                </div>
+
+                <div class="review">
+                    <h4>Akshay Sekhri</h4>
+                    <div class="rating">★★★★★</div>
+                    <p>Brilliant service that can be compared with 5 star resorts. Wonderful food and hospitality during our stay with Sagar Oza.</p>
+                </div>
+
+                <div class="review">
+                    <h4>Sheetal Gupta</h4>
+                    <div class="rating">★★★★★</div>
+                    <p>It's a beautiful Villa, very tastefully done.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="book-now-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Share Your Experience</h2>
-            <div class="reviews-section">
-                <div class="review-platform">
-                    <a href="https://www.google.com/maps/place/Shivom+Organic+Farms/@19.7699572,72.8439155,17z/data=!4m8!3m7!1s0x3be71ba29930d73f:0x4033937777eaf61a!8m2!3d19.7699572!4d72.8439155!9m1!1b1!16s%2Fg%2F11vlwwx2hc?entry=ttu&g_ep=EgoyMDI0MTIwOS4wIKXMDSoASAFQAw%3D%3D" 
-                       target="_blank" 
-                       class="review-link">
-                        <div class="review-content">
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h3>Enjoyed your stay?</h3>
-                            <p>Your review helps others discover this hidden gem in Palghar. Share your memorable moments!</p>
-                            <div class="review-button">
-                                Write a Review <i class="fas fa-arrow-right"></i>
-                            </div>
+            <h2>Book Your Stay</h2>
+            <div class="booking-options">
+                <a href="https://wa.me/9850769955?text=Hi%2C%20I%27m%20interested%20in%20learning%20more%20about%20Banyan%20Tree%20PoolVilla.%20Could%20you%20please%20share%20details%20about%20availability%2C%20amenities%2C%20or%20anything%20else%20I%20should%20know%3F%20Thanks%21" target="_blank" class="booking-link">
+                    <div class="booking-platform">
+                        <div class="platform-icon-wrapper whatsapp">
+                            <i class="fab fa-whatsapp"></i>
                         </div>
-                    </a>
-                </div>
+                        <div class="booking-platform-content">
+                            <h3>WhatsApp</h3>
+                            <p>Chat directly with the host</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.airbnb.co.in/rooms/1222193703277976384?source_impression_id=p3_1733987572_P3NmPiSvOygrjr3i" target="_blank" class="booking-link">
+                    <div class="booking-platform">
+                        <div class="platform-icon-wrapper airbnb">
+                            <i class="fab fa-airbnb"></i>
+                        </div>
+                        <div class="booking-platform-content">
+                            <h3>Airbnb</h3>
+                            <p>Secure booking through Airbnb</p>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

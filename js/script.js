@@ -1,3 +1,40 @@
+// Move the function outside DOMContentLoaded
+function openAirbnb() {
+    // Detect mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // Mobile deep linking logic
+        const listingId = '1222193703277976384';
+        const androidDeepLink = `airbnb://rooms/${listingId}`;
+        const iosDeepLink = `airbnb://rooms/${listingId}`;
+        const mobileWebFallback = `https://www.airbnb.co.in/rooms/${listingId}?source_impression_id=p3_1735220364_P3wNPj0PewEMvh_7#availability-calendar`;
+
+        // Create an invisible iframe
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        // Try to open the app
+        const tryApp = () => {
+            document.body.removeChild(iframe);
+            window.location.href = mobileWebFallback;
+        };
+
+        setTimeout(tryApp, 2500);
+
+        // Try to open the app
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            iframe.src = iosDeepLink;
+        } else if (/Android/i.test(navigator.userAgent)) {
+            iframe.src = androidDeepLink;
+        }
+    } else {
+        // For desktop/laptop, simply open this specific link
+        window.open('https://www.airbnb.co.in/rooms/1222193703277976384?source_impression_id=p3_1735220364_P3wNPj0PewEMvh_7#availability-calendar', '_blank');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile view notice
     if (window.innerWidth > 480) {
@@ -42,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'emergency-btn': 'emergency-modal',
         'rules-btn': 'rules-modal',
         'specials-btn': 'specials-modal',
-        'host-favorites': 'host-favorites-modal',
+        'food-card': 'food-modal',
         'amenities-card': 'amenities-modal',
         'gallery-card': 'gallery-modal'
     };
@@ -170,7 +207,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryCard = document.getElementById('gallery-card');
     if (galleryCard) {
         galleryCard.addEventListener('click', () => {
-            setTimeout(initializeGallery, 100);
+            setTimeout(() => {
+                initializeGallery();
+                initializeGalleryFilters();
+            }, 100);
         });
+    }
+
+    // Add this inside your DOMContentLoaded event listener
+    function initializeGalleryFilters() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                // Animate items
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    }
+
+    // Link nearby experiences to specials modal
+    document.getElementById('nearby-experiences').addEventListener('click', function() {
+        document.getElementById('specials-modal').style.display = 'block';
+    });
+
+    // Add this to your existing modal handling code
+    document.querySelectorAll('#book-now-footer-btn, .grid-item:last-child').forEach(button => {
+        button.onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('book-now-modal').style.display = 'block';
+        }
+    });
+
+    // Make sure this is updated in your window click handler
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+        }
     }
 }); 
