@@ -274,4 +274,34 @@ document.addEventListener('DOMContentLoaded', function() {
             event.target.style.display = "none";
         }
     }
+
+    // Add this to your existing DOMContentLoaded event listener
+    function initializeMenuFilters() {
+        const filterButtons = document.querySelectorAll('.menu-filter-btn');
+        const menuSections = document.querySelectorAll('.menu-section');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const menuType = button.getAttribute('data-menu');
+
+                // Hide all menu sections
+                menuSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show selected menu section
+                document.querySelector(`.menu-section[data-menu="${menuType}"]`).classList.add('active');
+            });
+        });
+    }
+
+    // Add this to your gallery card click handler or wherever you initialize the food modal
+    document.getElementById('food-card').addEventListener('click', () => {
+        setTimeout(initializeMenuFilters, 100);
+    });
 }); 

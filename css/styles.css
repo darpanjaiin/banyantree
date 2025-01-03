@@ -2336,8 +2336,6 @@ body {
     font-style: normal !important;
 }
 
-[Previous content remains exactly the same until the new styles...]
-
 /* Gallery Filters - Enhanced for horizontal scrolling */
 .gallery-filters {
     display: flex;
@@ -2416,7 +2414,6 @@ body {
     }
 }
 
-[Rest of the file remains exactly the same...]
 
 :root {
     --primary-color: #000000;
@@ -2434,7 +2431,6 @@ body {
     font-style: normal !important;
 }
 
-[Previous content remains exactly the same until the new styles...]
 
 /* Gallery Filters - Fixed Horizontal Scrolling */
 .gallery-filters {
@@ -2513,7 +2509,6 @@ body {
     }
 }
 
-[Rest of the file remains exactly the same...]
 
 :root {
     --primary-color: #000000;
@@ -2531,7 +2526,6 @@ body {
     font-style: normal !important;
 }
 
-[Previous content remains exactly the same until the new styles...]
 
 /* Gallery Grid and Filtering Improvements */
 .gallery-grid {
@@ -2570,5 +2564,303 @@ body {
     border-radius: 12px;
 }
 
-[Rest of the file remains exactly the same...]
+=
+:root {
+    --primary-color: #000000;
+    --secondary-color: #000000;
+    --accent-color: #E74C3C;
+    --text-color: #000000;
+    --light-gray: #ECF0F1;
+    --system-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: normal !important;
+}
+
+
+/* Food Menu Filters */
+.menu-filters {
+    display: flex;
+    gap: 8px;
+    padding: 0 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.menu-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-filter-btn {
+    flex: 1;
+    min-width: auto;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 12px;
+    background: #f5f5f5;
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.menu-filter-btn i {
+    font-size: 14px;
+}
+
+.menu-filter-btn.active {
+    background: #000;
+    color: white;
+}
+
+/* Menu Table Styles */
+.menu-section {
+    display: none;
+}
+
+.menu-section.active {
+    display: block;
+}
+
+.menu-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px;
+    padding: 0 16px;
+}
+
+.menu-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+.menu-table th {
+    background: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.menu-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #666;
+}
+
+.menu-table tr:last-child td {
+    border-bottom: none;
+}
+
+.coming-soon {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .menu-filters {
+        padding: 0 0 16px;
+        gap: 6px;
+    }
+
+    .menu-filter-btn {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .menu-table th,
+    .menu-table td {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #000000;
+    --accent-color: #E74C3C;
+    --text-color: #000000;
+    --light-gray: #ECF0F1;
+    --system-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: normal !important;
+}
+
+/* Menu Styling Updates */
+.menu-price {
+    background: #000;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.menu-category {
+    margin-bottom: 24px;
+}
+
+.menu-category h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #eee;
+}
+
+.menu-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.menu-table th {
+    background: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.menu-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #666;
+    vertical-align: top;
+}
+
+.menu-table ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-table li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.menu-table li:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .menu-table {
+        margin: 0 -16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .menu-table table {
+        min-width: 100%;
+    }
+    
+    .menu-table th,
+    .menu-table td {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .menu-price {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #000000;
+    --accent-color: #E74C3C;
+    --text-color: #000000;
+    --light-gray: #ECF0F1;
+    --system-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: normal !important;
+}
+
+/* Traditional Menu Specific Styles */
+.menu-prices {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.price-item {
+    flex: 1;
+    background: #000;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.price-label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.price-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.menu-inclusion {
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.menu-inclusion i {
+    color: #28a745;
+    margin-right: 8px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .menu-prices {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .price-item {
+        padding: 10px;
+    }
+    
+    .price-value {
+        font-size: 15px;
+    }
+}
 
