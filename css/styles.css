@@ -3076,4 +3076,94 @@ body {
     border-left: 4px solid #ffc107;
 }
 
+/* Add these styles for the experiences section */
+.experiences-grid {
+    display: grid;
+    gap: 24px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 16px;
+}
+
+.experience-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.experience-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.experience-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.experience-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+}
+
+.experience-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.experience-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.experience-features span {
+    background: #f8f9fa;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.experience-features span:hover {
+    background: #000;
+    color: white;
+}
+
+.experience-features i {
+    font-size: 12px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .experiences-grid {
+        gap: 16px;
+        padding: 12px;
+    }
+
+    .experience-image {
+        height: 180px;
+    }
+
+    .experience-content {
+        padding: 16px;
+    }
+}
+
 

@@ -266,4 +266,128 @@ body {
 
 .menu-section[data-menu="traditional"] .menu-inclusion i {
     color: #28a745;
+}
+
+/* Update À La Carte specific styles */
+.alacarte-table {
+    margin: 0 -16px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.alacarte-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.alacarte-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.alacarte-table tr:last-child {
+    border-bottom: none;
+}
+
+.alacarte-table td {
+    padding: 12px 16px;
+    vertical-align: middle;
+}
+
+.alacarte-table .item-name {
+    color: #333;
+    font-size: 14px;
+    padding-right: 24px;
+}
+
+.alacarte-table .item-desc {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.alacarte-table .item-price {
+    text-align: right;
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+    width: 80px;
+}
+
+.menu-category {
+    margin-bottom: 24px;
+}
+
+.menu-category h4 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-category .timing {
+    font-size: 13px;
+    color: #666;
+    font-weight: normal;
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    .alacarte-table {
+        margin: 0 -12px;
+        border-radius: 6px;
+    }
+
+    .alacarte-table td {
+        padding: 10px 12px;
+    }
+    
+    .alacarte-table .item-name {
+        font-size: 13px;
+        padding-right: 16px;
+    }
+    
+    .alacarte-table .item-desc {
+        font-size: 11px;
+    }
+    
+    .alacarte-table .item-price {
+        font-size: 13px;
+    }
+
+    .menu-category h4 {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Card styles for experiences without images */
+.experience-card.card-minimal {
+    background: #f8f9fa;
+    border: none;
+    box-shadow: none;
+}
+
+.experience-card.card-minimal .experience-content {
+    padding: 24px;
+}
+
+.experience-card.card-minimal:hover {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+    .menu-section[data-menu="alacarte"] .menu-table tr {
+        padding: 12px;
+    }
+    
+    .experience-card.card-minimal .experience-content {
+        padding: 16px;
+    }
 } 
