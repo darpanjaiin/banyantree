@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add this to your gallery card click handler or wherever you initialize the food modal
-    document.getElementById('food-card').addEventListener('click', () => {
-        setTimeout(initializeMenuFilters, 100);
+    document.getElementById('food-card').addEventListener('click', function() {
+        window.location.href = 'food.html';
     });
 }); 
