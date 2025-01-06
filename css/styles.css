@@ -1825,7 +1825,6 @@ body {
     font-style: normal !important;
 }
 
-[Previous content remains exactly the same until the new styles...]
 
 /* Gallery Filters */
 .gallery-filters {
@@ -1900,7 +1899,6 @@ body {
     transform: scale(0.98);
 }
 
-[Rest of the file remains exactly the same...]
 
 :root {
     --primary-color: #000000;
@@ -1918,7 +1916,6 @@ body {
     font-style: normal !important;
 }
 
-[Previous content remains exactly the same until the new styles...]
 
 /* Gallery Filters */
 .gallery-filters {
@@ -2052,7 +2049,6 @@ body {
     transform: translateY(0);
 }
 
-[Rest of the file remains exactly the same...]
 
 :root {
     --primary-color: #000000;
@@ -2070,7 +2066,6 @@ body {
     font-style: normal !important;
 }
 
-[Previous content remains exactly the same until the new styles...]
 
 /* Booking Modal Styles */
 .booking-options {
@@ -2141,7 +2136,6 @@ body {
     color: #666;
 }
 
-[Rest of the file remains exactly the same...]
 
 :root {
     --primary-color: #000000;
@@ -2159,7 +2153,6 @@ body {
     font-style: normal !important;
 }
 
-[Previous content remains exactly the same until the new styles...]
 
 /* Optional: Add these styles if you want food-specific styling */
 #food-modal .modal-sections {
@@ -2177,7 +2170,6 @@ body {
     margin-bottom: 0;
 }
 
-[Rest of the file remains exactly the same...]
 
 :root {
     --primary-color: #000000;
@@ -2195,7 +2187,6 @@ body {
     font-style: normal !important;
 }
 
-[Previous content remains exactly the same until the new styles...]
 
 /* Food Modal Styles */
 .meal-timings {
@@ -2318,7 +2309,6 @@ body {
     margin-bottom: 0;
 }
 
-[Rest of the file remains exactly the same...]
 
 :root {
     --primary-color: #000000;
@@ -2564,7 +2554,7 @@ body {
     border-radius: 12px;
 }
 
-=
+
 :root {
     --primary-color: #000000;
     --secondary-color: #000000;
@@ -3167,3 +3157,50 @@ body {
 }
 
 
+.instagram-follow-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.instagram-follow-btn i {
+        font-size: 16px;
+}
+
+.instagram-follow-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.instagram-follow-btn:active {
+    transform: translateY(0);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .instagram-follow-btn {
+        top: 15px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .instagram-follow-btn i {
+        font-size: 15px;
+    }
+}
