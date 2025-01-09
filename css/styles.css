@@ -2120,6 +2120,11 @@ body {
     color: white;
 }
 
+.platform-icon-wrapper.booking {
+    background: #003580;
+    color: white;
+}
+
 .booking-platform-content {
     flex: 1;
 }
