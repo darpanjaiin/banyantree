@@ -72,14 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Button click handlers
     const buttonMappings = {
-        'book-now-btn': 'book-now-modal',
-        'book-now-footer-btn': 'book-now-modal',
         'reviews-btn': 'reviews-modal',
+        'book-now-btn': 'book-now-modal',
         'nearby-btn': 'nearby-modal',
         'emergency-btn': 'emergency-modal',
         'rules-btn': 'rules-modal',
         'specials-btn': 'specials-modal',
-        'food-card': 'food-modal',
         'amenities-card': 'amenities-modal',
         'gallery-card': 'gallery-modal'
     };
@@ -92,10 +90,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Add this specific handler for the book now button
+    const bookNowBtn = document.getElementById('book-now-btn');
+    if (bookNowBtn) {
+        bookNowBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const modal = document.getElementById('book-now-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.classList.add('modal-open');
+            }
+        });
+    }
+
+    // Add handler for footer book now button
+    const bookNowFooterBtn = document.getElementById('book-now-footer-btn');
+    if (bookNowFooterBtn) {
+        bookNowFooterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const modal = document.getElementById('book-now-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.classList.add('modal-open');
+            }
+        });
+    }
+
     // Close button handlers
     document.querySelectorAll('.close').forEach(closeBtn => {
-        closeBtn.addEventListener('click', () => {
-            const modal = closeBtn.closest('.modal');
+        closeBtn.addEventListener('click', function() {
+            const modal = this.closest('.modal');
             if (modal) {
                 closeModal(modal.id);
             }
@@ -103,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close modal when clicking outside
-    window.addEventListener('click', (event) => {
+    window.addEventListener('click', function(event) {
         if (event.target.classList.contains('modal')) {
             closeModal(event.target.id);
         }
@@ -257,21 +283,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Link nearby experiences to specials modal
     document.getElementById('nearby-experiences').addEventListener('click', function() {
-        document.getElementById('specials-modal').style.display = 'block';
-    });
-
-    // Add this to your existing modal handling code
-    document.querySelectorAll('#book-now-footer-btn, .grid-item:last-child').forEach(button => {
-        button.onclick = function(e) {
-            e.preventDefault();
-            document.getElementById('book-now-modal').style.display = 'block';
-        }
+        openModal('specials-modal');
     });
 
     // Make sure this is updated in your window click handler
     window.onclick = function(event) {
         if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
+            closeModal(event.target.id);
         }
     }
 
